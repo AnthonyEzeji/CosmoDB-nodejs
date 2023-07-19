@@ -22,4 +22,4 @@ var app = express();
 app.use(express.json(),cors("*"))
 app.use('/api/users', userRoutes)
 app.use('/api/groups', groupRoutes)
-app.listen(5000,()=>console.log('Server running on port 5000...'))
+app.listen(process.env.SERVER_PORT,()=>console.log(`Server running on port ${process.env.SERVER_PORT}...`))

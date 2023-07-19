@@ -28,7 +28,7 @@ router.get('/allGroups',async (req,res)=>{
    
 })
 router.post('/createGroup',async (req,res)=>{
-    console.log(req.body)
+
     try {
        let {groupName,groupId} = req.body
        let groupToCreate = null
