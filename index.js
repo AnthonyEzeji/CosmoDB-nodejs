@@ -4,6 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const userModel = require('./models/userModel')
 const userRoutes = require('./routes/userRoutes')
+const groupRoutes = require('./routes/groupRoutes')
 mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
    auth: {
      username: process.env.COSMOSDB_USER,
@@ -20,4 +21,5 @@ var app = express();
 
 app.use(express.json(),cors("*"))
 app.use('/api/users', userRoutes)
+app.use('/api/groups', groupRoutes)
 app.listen(5000,()=>console.log('Server running on port 5000...'))
